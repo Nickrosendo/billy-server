@@ -1,9 +1,26 @@
 import Restaurant from './model';
 
 export const createRestaurant = async (req, res) => {
-  const {name} = req.body;
+  console.log(req.body);
+  const {
+    name,
+    location
+  } = req.body;
+  // console.log(req.body.location);
+  // try {
+  //   let location = {
+  //     ...req.body.location,
+  //     cordinates: JSON.parse(req.body.location.cordinates)
+  //   };
+  // } catch (err) {
+  //   return res.status(400).json({
+  //     error: true,
+  //     message: 'Location must be a array of numbers'
+  //   });
+  // }
   const newRestaurant = new Restaurant({
-    name
+    name,
+    location
   });
 
   try {
@@ -11,8 +28,7 @@ export const createRestaurant = async (req, res) => {
       restaurant: await newRestaurant.save()
     });
   } catch (error) {
-    console.error(error)
-    return res.status(error).json({
+    return res.status(400).json({
       error: true,
       message: 'Error on Restaurant creation'
     });
