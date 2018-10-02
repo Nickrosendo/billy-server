@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test-coverage": "jest --collectCoverage"
   },
   "keywords": [
     "node"
@@ -19,10 +20,13 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
+    "jest": "^23.6.0",
+    "nock": "^10.0.0",
     "nodemon": "^1.18.4"
   }
 }

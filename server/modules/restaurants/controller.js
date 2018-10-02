@@ -6,18 +6,6 @@ export const createRestaurant = async (req, res) => {
     name,
     location
   } = req.body;
-  // console.log(req.body.location);
-  // try {
-  //   let location = {
-  //     ...req.body.location,
-  //     cordinates: JSON.parse(req.body.location.cordinates)
-  //   };
-  // } catch (err) {
-  //   return res.status(400).json({
-  //     error: true,
-  //     message: 'Location must be a array of numbers'
-  //   });
-  // }
   const newRestaurant = new Restaurant({
     name,
     location
