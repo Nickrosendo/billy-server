@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
-export const PointSchema = new mongoose.Schema({
+export const PolygonSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ['Point'],
+    enum: ['Polygon'],
     required: true
   },
   coordinates: {
-    type: [Number],
+    type: [[[Number]]],
     required: true
   }
 });

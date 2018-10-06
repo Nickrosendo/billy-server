@@ -1,7 +1,7 @@
-import Restaurant from './model';
+import Restaurant from './schema';
 
 export const createRestaurant = async (req, res) => {
-  console.log(req.body);
+
   const {
     name,
     location
@@ -16,6 +16,7 @@ export const createRestaurant = async (req, res) => {
       restaurant: await newRestaurant.save()
     });
   } catch (error) {
+    console.log(error);
     return res.status(400).json({
       error: true,
       message: 'Error on Restaurant creation'
@@ -25,13 +26,24 @@ export const createRestaurant = async (req, res) => {
 
 export const getAllRestaurants = async (req, res) => {
   try {
+    return res.status(200).json(await Restaurant.find({}))
+  } catch (error) {
+    return res.status(error.status).json({
+      error: true,
+      message: 'Error on get all restaurants'
+    });
+  }
+}
+
+export const getAllNearRestaurants = async (req, res) => {
+  try {
     return res.status(200).json({
       restaurants: await Restaurant.find({})
     })
   } catch (error) {
     return res.status(error.status).json({
       error: true,
-      message: 'Error on get all restaurants'
+      message: 'Error on get all near restaurants'
     });
   }
 }

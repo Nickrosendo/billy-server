@@ -5,7 +5,8 @@ import {
   middlewares
 } from './config';
 import {
-  RestaurantRoutes
+  RestaurantRoutes,
+  AddressesRoutes
 } from './modules';
 
 const app = express();
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 database();
 middlewares(app);
 
-app.use('/api', [RestaurantRoutes]);
+app.use('/api', [RestaurantRoutes, AddressesRoutes]);
 
 app.listen(PORT, (err) => {
   if (err) {
