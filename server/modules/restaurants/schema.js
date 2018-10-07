@@ -15,25 +15,6 @@ const RestaurantSchema = new Schema({
     type: PointSchema,
     required: true
   }
-  // menu: {
-  //   type: Array,
-  //   required: true,
-  //   menuItem: {
-  //     type: Object,
-  //     required: true,
-  //     name: {
-  //       type: String,
-  //       required: true
-  //     },
-  //     price: {
-  //       type: Number,
-  //       required: true
-  //     },
-  //     ingredients: {
-  //       type: Array,
-  //     }
-  //   }
-  // }
 })
 
 export default mongoose.model('Restaurant', RestaurantSchema);
