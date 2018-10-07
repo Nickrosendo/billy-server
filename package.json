@@ -4,8 +4,8 @@
   "description": "NodeJs server of billy app",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index",
+    "dev": "nodemon --experimental-modules server/index.mjs",
+    "start": "node --experimental-modules server/index.mjs",
     "test": "jest",
     "test-coverage": "jest --collectCoverage"
   },
