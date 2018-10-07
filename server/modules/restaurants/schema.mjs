@@ -1,12 +1,10 @@
-import mongoose, {
-  Schema
-} from 'mongoose';
+import mongoose from 'mongoose';
 
 import {
   PointSchema
-} from '../shared-schemas';
+} from '../shared-schemas/index.mjs';
 
-const RestaurantSchema = new Schema({
+const RestaurantSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
