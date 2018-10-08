@@ -1,4 +1,5 @@
 import express from 'express';
+import * as functions from 'firebase-functions'
 
 import {
   database,
@@ -9,17 +10,10 @@ import {
 } from './modules';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 database();
 middlewares(app);
 
 app.use('/api', [RestaurantRoutes]);
 
-app.listen(PORT, (err) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(`Node running on port ${PORT}`);
-  }
-})
+export const funcApp = functions.https.onRequest(app);

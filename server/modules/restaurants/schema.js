@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 import {
   PointSchema
-} from '../shared-schemas/index.mjs';
+} from '../shared-schemas/index.js';
 
 const RestaurantSchema = new mongoose.Schema({
   name: {

@@ -1,1 +1,0 @@
-export * from './restaurants/index.mjs';
