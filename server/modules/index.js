@@ -1,1 +1,1 @@
-export * from './restaurants/index.mjs';
+export * from './restaurants/index';

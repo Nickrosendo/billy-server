@@ -1,2 +1,2 @@
-export * from './point-schema.mjs';
-export * from './polygon-schema.mjs';
+export * from './point-schema';
+export * from './polygon-schema';

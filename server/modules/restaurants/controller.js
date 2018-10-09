@@ -1,4 +1,4 @@
-import Restaurant from './schema.mjs';
+import Restaurant from './schema';
 
 export const createRestaurant = async (req, res) => {
 

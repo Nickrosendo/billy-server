@@ -1,4 +1,4 @@
-import RestaurantRoutes from './routes.mjs';
+import RestaurantRoutes from './routes';
 
 export {
   RestaurantRoutes

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node server/index.js",
-    "build": "babel server --out-dir dist && babel server --out-dir functions",
+    "build": "babel server --out-dir dist",
     "start": "node dist/index.js",
     "test": "jest",
     "test-coverage": "jest --collectCoverage"
@@ -16,6 +16,7 @@
   "author": "Nicolas Rosendo",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
@@ -26,6 +27,7 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "axios": "^0.18.0",
     "jest": "23.6.0",
