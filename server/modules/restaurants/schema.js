@@ -9,6 +9,17 @@ const RestaurantSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  logo: {
+    type: String, 
+    required: true
+  },
+  menu: [{
+    name: String,
+    price: Number,
+    img: String,
+    ingredients: [ String ],
+    description: String
+  }],
   location: {
     type: PointSchema,
     required: true

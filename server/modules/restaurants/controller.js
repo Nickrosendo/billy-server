@@ -4,10 +4,14 @@ export const createRestaurant = async (req, res) => {
 
   const {
     name,
+    logo,
+    menu,
     location
   } = req.body;
   const newRestaurant = new Restaurant({
     name,
+    logo,
+    menu,
     location
   });
 
