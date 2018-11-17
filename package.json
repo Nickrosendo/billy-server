@@ -10,7 +10,7 @@
     "test": "jest",
     "test-coverage": "jest --collectCoverage"
   },
-  "precommit": "yarn build",
+  "pre-commit": [ "build" ],
   "keywords": [
     "node"
   ],
@@ -33,6 +33,7 @@
     "axios": "^0.18.0",
     "jest": "23.6.0",
     "nock": "10.0.0",
-    "nodemon": "1.18.4"
+    "nodemon": "1.18.4",
+    "pre-commit": "^1.2.2"
   }
 }
