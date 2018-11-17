@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+import { MenuSchema } from './menu-schema';
 import {
   PointSchema
 } from '../shared-schemas/index.js';
@@ -13,13 +14,11 @@ const RestaurantSchema = new mongoose.Schema({
     type: String, 
     required: true
   },
-  menu: [{
-    name: String,
-    price: Number,
-    img: String,
-    ingredients: [ String ],
-    description: String
-  }],
+  payToConfirmOrder: {
+    type: Boolean,
+    required: false
+  },
+  menu: [MenuSchema],
   location: {
     type: PointSchema,
     required: true

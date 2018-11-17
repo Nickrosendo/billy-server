@@ -30,7 +30,8 @@ export const createRestaurant = async (req, res) => {
 
 export const getAllRestaurants = async (req, res) => {
   try {
-    return res.status(200).json(await Restaurant.find({}))
+    const findedRestaurants = await Restaurant.find({});
+    return res.status(200).json(findedRestaurants);
   } catch (error) {
     return res.status(error.status).json({
       error: true,
