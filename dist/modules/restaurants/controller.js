@@ -19,15 +19,17 @@ function () {
   var _ref = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(req, res) {
-    var _req$body, name, location, newRestaurant;
+    var _req$body, name, logo, menu, location, newRestaurant;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _req$body = req.body, name = _req$body.name, location = _req$body.location;
+            _req$body = req.body, name = _req$body.name, logo = _req$body.logo, menu = _req$body.menu, location = _req$body.location;
             newRestaurant = new _schema.default({
               name: name,
+              logo: logo,
+              menu: menu,
               location: location
             });
             _context.prev = 2;
@@ -72,33 +74,33 @@ function () {
   var _ref2 = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee2(req, res) {
+    var findedRestaurants;
     return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            _context2.t0 = res.status(200);
-            _context2.next = 4;
+            _context2.next = 3;
             return _schema.default.find({});
 
-          case 4:
-            _context2.t1 = _context2.sent;
-            return _context2.abrupt("return", _context2.t0.json.call(_context2.t0, _context2.t1));
+          case 3:
+            findedRestaurants = _context2.sent;
+            return _context2.abrupt("return", res.status(200).json(findedRestaurants));
 
-          case 8:
-            _context2.prev = 8;
-            _context2.t2 = _context2["catch"](0);
-            return _context2.abrupt("return", res.status(_context2.t2.status).json({
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+            return _context2.abrupt("return", res.status(_context2.t0.status).json({
               error: true,
               message: 'Error on get all restaurants'
             }));
 
-          case 11:
+          case 10:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, this, [[0, 8]]);
+    }, _callee2, this, [[0, 7]]);
   }));
 
   return function getAllRestaurants(_x3, _x4) {
