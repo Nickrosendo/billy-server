@@ -10,7 +10,7 @@
     "test": "jest",
     "test-coverage": "jest --collectCoverage"
   },
-  "pre-commit": [ "build" ],
+  "pre-commit": [ "build"],
   "keywords": [
     "node"
   ],
