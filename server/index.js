@@ -21,5 +21,6 @@ app.listen(port, (err)=> {
   if(err) {
     console.log(err);
   }
+  console.log('test pre commit');
   console.log('Node running on port ' + port);
 })
