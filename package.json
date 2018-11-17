@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node server/index.js",
-    "build": "babel server --out-dir dist",
+    "build": "yarn babel server --out-dir dist",
     "start": "yarn build && node dist/index.js",
     "test": "jest",
     "test-coverage": "jest --collectCoverage",
