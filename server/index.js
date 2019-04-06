@@ -1,5 +1,5 @@
 import express from 'express';
-// import * as functions from 'firebase-functions';
+import * as functions from 'firebase-functions';
 
 
 import { database, middlewares } from './config';
