@@ -1,5 +1,5 @@
 import express from 'express';
-import * as functions from 'firebase-functions';
+// import * as functions from 'firebase-functions';
 
 
 import { database, middlewares } from './config';
@@ -12,7 +12,7 @@ middlewares(app);
 
 app.use('/api', [RestaurantRoutes]);
 
-// const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 // app.listen(port, err => {
 //   if (err) {

@@ -15,6 +15,7 @@ var RestaurantController = _interopRequireWildcard(require("./controller.js"));
 
 var routes = new _express.default.Router();
 routes.get('/restaurants', RestaurantController.getAllRestaurants);
+routes.post('/restaurants', RestaurantController.getAllNearRestaurants);
 routes.post('/restaurants/create', RestaurantController.createRestaurant);
 var _default = routes;
 exports.default = _default;

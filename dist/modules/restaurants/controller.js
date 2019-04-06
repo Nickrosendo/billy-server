@@ -50,7 +50,7 @@ function () {
             console.log(_context.t3);
             return _context.abrupt("return", res.status(400).json({
               error: true,
-              message: 'Error on Restaurant creation'
+              message: "Error on Restaurant creation"
             }));
 
           case 15:
@@ -58,7 +58,7 @@ function () {
             return _context.stop();
         }
       }
-    }, _callee, this, [[2, 11]]);
+    }, _callee, null, [[2, 11]]);
   }));
 
   return function createRestaurant(_x, _x2) {
@@ -92,7 +92,7 @@ function () {
             _context2.t0 = _context2["catch"](0);
             return _context2.abrupt("return", res.status(_context2.t0.status).json({
               error: true,
-              message: 'Error on get all restaurants'
+              message: "Error on get all restaurants"
             }));
 
           case 10:
@@ -100,7 +100,7 @@ function () {
             return _context2.stop();
         }
       }
-    }, _callee2, this, [[0, 7]]);
+    }, _callee2, null, [[0, 7]]);
   }));
 
   return function getAllRestaurants(_x3, _x4) {
@@ -116,36 +116,59 @@ function () {
   var _ref3 = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee3(req, res) {
+    var cordinates, location, query;
     return _regenerator.default.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            _context3.t0 = res.status(200);
-            _context3.next = 4;
-            return _schema.default.find({});
+            cordinates = req.body.cordinates;
 
-          case 4:
-            _context3.t1 = _context3.sent;
-            _context3.t2 = {
-              restaurants: _context3.t1
+            if (!cordinates) {
+              _context3.next = 10;
+              break;
+            }
+
+            location = {
+              location: {
+                $nearSphere: {
+                  $geometry: {
+                    type: "Point",
+                    coordinates: [cordinates.longitute, cordinates.latitude]
+                  },
+                  $minDistance: 0,
+                  $maxDistance: 1000
+                }
+              }
             };
-            return _context3.abrupt("return", _context3.t0.json.call(_context3.t0, _context3.t2));
+            _context3.next = 6;
+            return _schema.default.find(location);
 
-          case 9:
-            _context3.prev = 9;
-            _context3.t3 = _context3["catch"](0);
-            return _context3.abrupt("return", res.status(_context3.t3.status).json({
+          case 6:
+            query = _context3.sent;
+            return _context3.abrupt("return", res.status(200).json(query));
+
+          case 10:
+            throw new Error('Error: cordinates are missing!!');
+
+          case 11:
+            _context3.next = 16;
+            break;
+
+          case 13:
+            _context3.prev = 13;
+            _context3.t0 = _context3["catch"](0);
+            return _context3.abrupt("return", res.status(_context3.t0.status || 400).json({
               error: true,
-              message: 'Error on get all near restaurants'
+              message: _context3.t0.message || "Error on get all near restaurants"
             }));
 
-          case 12:
+          case 16:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, this, [[0, 9]]);
+    }, _callee3, null, [[0, 13]]);
   }));
 
   return function getAllNearRestaurants(_x5, _x6) {
