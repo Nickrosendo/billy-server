@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NodeJs server of billy app",
   "main": "index.js",
+  "engines": { "node": "10.24.1" },
   "scripts": {
     "dev": "npm run build && npm start",
     "build": "babel server --out-dir dist && babel server --out-dir functions",

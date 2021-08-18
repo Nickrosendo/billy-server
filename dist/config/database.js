@@ -13,13 +13,14 @@ var dbUser = {
   name: 'admin',
   password: 'admin0112358'
 };
-var dbUrl = "mongodb://".concat(dbUser.name, ":").concat(dbUser.password, "@ds239009.mlab.com:39009/billy-app");
+var dbUrl = "mongodb+srv://".concat(dbUser.name, ":").concat(dbUser.password, "@cluster0.syhbj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 var database = function database() {
   _mongoose.default.Promise = global.Promise;
 
   _mongoose.default.connect(dbUrl, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   });
 
   _mongoose.default.connection.once('open', function () {
