@@ -4,9 +4,10 @@
   "description": "NodeJs server of billy app",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build && npm start",
-    "build": "babel server --out-dir dist && babel server --out-dir functions",
-    "start": "node dist/index.js",
+    "dev": "yarn build && yarn start",
+    "build": "rm -rf dist && babel src --out-dir dist",
+    "seed:mongodb": "yarn build && node dist/data/mongodb/import.js",
+    "start": "node dist/server/index.js",
     "test": "jest",
     "test-coverage": "jest --collectCoverage",
     "firebase": "firebase"
@@ -26,6 +27,7 @@
     "express": "^4.16.3",
     "firebase-functions": "^2.1.0",
     "firebase-tools": "^6.2.2",
+    "mongo-seeding": "^3.7.0",
     "mongoose": "5.3.0",
     "morgan": "^1.9.1"
   },

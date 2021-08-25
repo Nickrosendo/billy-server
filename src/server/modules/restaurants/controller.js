@@ -14,7 +14,6 @@ export const createRestaurant = async (req, res) => {
       restaurant: await newRestaurant.save()
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).json({
       error: true,
       message: "Error on Restaurant creation"
@@ -36,24 +35,24 @@ export const getAllRestaurants = async (req, res) => {
 
 export const getAllNearRestaurants = async (req, res) => {
   try {
-    const { cordinates } = req.body;
-    if(cordinates) {
+    const { coordinates } = req.body;
+    if(coordinates) {
       const location = {
         location: {
           $nearSphere: {
              $geometry: {
                 type : "Point",
-                coordinates: [cordinates.longitute, cordinates.latitude]
+                coordinates
              },
              $minDistance: 0,
-             $maxDistance: 1000
+             $maxDistance: 50000
           }
        }
       };
       const query = await Restaurant.find(location)
       return res.status(200).json(query);
     } else {
-      throw new Error('Error: cordinates are missing!!');
+      throw new Error('Error: coordinates are missing!!');
     }
   } catch (error) {
     return res.status(error.status || 400).json({

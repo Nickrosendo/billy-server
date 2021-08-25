@@ -1,5 +1,4 @@
 import express from 'express';
-import * as functions from 'firebase-functions';
 
 import { database, middlewares } from './config';
 import { RestaurantRoutes } from './modules';
@@ -19,5 +18,3 @@ app.listen(port, err => {
    }
    console.log('Node running on port ' + port);
 });
-
-export const funcApp = functions.https.onRequest(app);
