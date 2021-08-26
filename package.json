@@ -26,7 +26,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "firebase-functions": "^2.1.0",
-    "firebase-tools": "^6.2.2",
+    "firebase-tools": "^9.16.6",
     "mongo-seeding": "^3.7.0",
     "mongoose": "5.7.5",
     "morgan": "^1.9.1"
